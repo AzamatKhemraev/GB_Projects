@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/6a5b01e445.js" crossorigin="anonymous"></script>
+    <title>eShop</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <nav class="header-menu">
+          <div class="logo">
+            <a href="#!" class="logo-link"><span>e</span>Shop</a>
+          </div>
+          <button class="cart-button" type="button"><i class="fas fa-shopping-cart"></i> Cart</button>
+        </nav>
+      </header>
+      <main>
+        <div class="goods-list"></div>
+      </main>
+    </main>
+  </body>
+</html>
+
+1) Стили добавлены 2) Значения по умолчанию для функций добавлены 3) В функции renderGoodsList для формирования goodsList используется метод map
+который изменяет каждый элемент массива, к которому он был применен, и возвращает новый измененный массив. И когда в .goods-list через innerHTML
+добавлялся goodsList (а это массив) появлялись запятые между элементами массива
