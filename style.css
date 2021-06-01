@@ -49,6 +49,21 @@ body {
   transform: translate3d(2px, -1%, 30px);
 }
 
+.goods-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#addToCart {
+  height: 100%;
+  font-size: 24px;
+  margin-bottom: 16px;
+  border: transparent;
+  background: none;
+  cursor: pointer;
+}
+
 .cart-button {
   border: 2px solid;
   border-image: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
