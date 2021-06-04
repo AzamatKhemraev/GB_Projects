@@ -2,27 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-    <!-- <script src="hamburger.js"></script> -->
     <script src="https://kit.fontawesome.com/6a5b01e445.js" crossorigin="anonymous"></script>
     <title>eShop</title>
   </head>
   <body>
+    <header>
+      <nav class="header-menu">
+        <div class="logo">
+          <a href="#!" class="logo-link"><span class="gradient-style">e</span>Shop</a>
+        </div>
+        <a class="cart-button" href="#"><i class="fas fa-shopping-cart"></i> Cart </a>
+      </nav>
+    </header>
     <main>
-      <header>
-        <nav class="header-menu">
-          <div class="logo">
-            <a href="#!" class="logo-link"><span>e</span>Shop</a>
-          </div>
-          <button class="cart-button" type="button"><i class="fas fa-shopping-cart"></i> Cart</button>
-        </nav>
-      </header>
-      <main>
+      <section>
         <div class="goods-list"></div>
-      </main>
+      </section>
+      <section>
+        <div class="cart-body"></div>
+      </section>
     </main>
   </body>
 </html>

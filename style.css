@@ -8,7 +8,8 @@ body {
   font-size: 35px;
 }
 
-.logo-link span {
+.logo-link span,
+.gradient-style {
   color: rgb(0, 220, 227);
   font-weight: bold;
   background: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
@@ -55,7 +56,7 @@ body {
   align-items: flex-end;
 }
 
-#addToCart {
+.addToCart {
   height: 100%;
   font-size: 24px;
   margin-bottom: 16px;
@@ -65,6 +66,9 @@ body {
 }
 
 .cart-button {
+  text-decoration: none;
+  text-align: center;
+  color: #000;
   border: 2px solid;
   border-image: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
   border-image-slice: 1;
@@ -81,4 +85,45 @@ body {
 .cart-button:hover {
   box-shadow: 1px 8px 14px -8px rgba(0, 0, 0, 0.75);
   transform: translate3d(2px, -1%, 30px);
+}
+
+.cart-body {
+  margin-top: 50px;
+  padding: 15px 15px;
+  min-height: 213px;
+  border: 2px solid;
+  border-image: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
+  border-image-slice: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  gap: 50px;
+  min-width: 350px;
+}
+
+.cart-item:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.cart-item-buttons {
+  align-self: end;
+  display: flex;
+}
+
+.cart-item-btn-increase,
+.cart-item-btn-decrease,
+.cart-item-btn-delete {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 24px;
+}
+.cart-item-btn-delete {
+  margin-left: 15px;
+  color: rgb(226, 43, 43);
 }
