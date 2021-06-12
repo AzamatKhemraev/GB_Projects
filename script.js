@@ -1,49 +1,43 @@
-let init = () => {
-  let replaceQuotesButton = document.querySelector("#replace-quotes");
-  let checkButton = document.querySelector("#check-form");
-  let paragraph = document.querySelector(".task-1-2 p");
+const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'
 
-  let replaceQuotes = /\B'|'\B/g;
-  let namePattern = /^[a-zа-яё]+$/i;
-  let phonePattern = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/g;
-  let emailPattern = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/g;
+const app = new Vue({
+    el: '#app',
+    data: {
+        products: [],
+        filteredProducts: [],
+        cartList: [],
+        searchLine: '',
+        isVisibleCart: false,
+    },
 
-  let inputName = document.querySelector("#name");
-  let inputPhone = document.querySelector("#phone");
-  let inputEmail = document.querySelector("#email");
-  let inputArr = [inputName, inputPhone, inputEmail];
-  let notice = document.querySelector(".notice");
+    methods: {
+        async getProducts() {
+            const responce = await fetch(`${API_URL}/catalogData.json`)
+            if (responce.ok) {
+                const catalogItems = await responce.json()
+                this.products = catalogItems
+                this.filteredProducts = catalogItems
+            } else {
+                alert('Ошибка при соединении с сервером')
+            }
+        },
 
-  function checkCorrect(HTMLElevent, RegExp) {
-    if (RegExp.test(HTMLElevent.value)) {
-      if (!HTMLElevent.classList.contains("correct")) {
-        HTMLElevent.classList.add("correct");
-        HTMLElevent.classList.remove("incorrect");
-      }
-    } else if (!RegExp.test(HTMLElevent.value)) {
-      if (!HTMLElevent.classList.contains("incorrect")) {
-        HTMLElevent.classList.add("incorrect");
-        HTMLElevent.classList.remove("correct");
-      }
-    }
-  }
+        filterProducts() {
+            if (!this.searchLine) {
+                this.filteredProducts = this.products
+            } else {
+                this.filteredProducts = this.products.filter((elem) => elem.product_name == this.searchLine)
+            }
+        },
 
-  // Задание 1 и 2
-  replaceQuotesButton.addEventListener("click", () => (paragraph.innerHTML = paragraph.textContent.replace(replaceQuotes, '"')));
+        getCartList() {
+            if (this.cartList.length == 0) {
+                return alert('Корзина пуста')
+            }
+        },
+    },
 
-  //Задание 3
-  checkButton.addEventListener("click", () => {
-    checkCorrect(inputName, namePattern);
-    checkCorrect(inputPhone, phonePattern);
-    checkCorrect(inputEmail, emailPattern);
-
-    for (const elem of inputArr) {
-      if (elem.classList.contains("incorrect")) {
-        notice.style.display = "block";
-        break;
-      } else notice.style.display = "none";
-    }
-  });
-};
-
-window.onload = init;
+    async mounted() {
+        await this.getProducts()
+    },
+})

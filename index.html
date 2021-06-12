@@ -1,33 +1,29 @@
 <!DOCTYPE html>
+<meta charset="UTF-8" />
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-    <title>RegExp</title>
-  </head>
-  <body>
-    <section class="task">
-      <div class="task-1-2">
-        <p>
-          Прямая речь:'Lorem ipsum dolor si't, amet consectetur adipisicin'g elit. Illo esse corrupti ratione rerum tenetur ipsa consequatur? Odit minus liber'o recusandae magni
-          hic, impedit, iste aliquam commodi culpa ratione harum tenetur! Rerum asperior'es voluptatem quae at obcaecat'i sed distinc'tio eveniet volupta'te voluptatu'm, in fugit
-          delen'iti quia ducimus facere laboriosam qui iste?'
-        </p>
-        <button id="replace-quotes">Заменить ковычки</button>
-      </div>
-    </section>
-    <section class="task">
-      <div class="feedback">
-        <input type="text" name="" id="name" placeholder="Введите имя" />
-        <input type="text" name="" id="phone" placeholder="Телефон +7(ххх)ххх-хх-хх" />
-        <input type="text" name="" id="email" placeholder="Введите email" />
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <button id="check-form">Отправить</button>
-        <div class="notice">Вы ввели некорректные данные</div>
-      </div>
-    </section>
-  </body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+        <link rel="stylesheet" href="style.css" />
+        <title>eShop</title>
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <input type="text" class="products-search" v-model="searchLine" />
+                <button class="search-button" type="button" @click="filterProducts">Искать</button>
+                <button class="cart-button" type="button" @click="getCartList">Корзина</button>
+            </header>
+            <main>
+                <div class="products-list">
+                    <div class="products-item" v-for="product in filteredProducts">
+                        <h3>{{product.product_name}}</h3>
+                        <p>{{product.price}}</p>
+                    </div>
+                </div>
+                <div class="cart-body" v-show="isVisibleCart"></div>
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="script.js"></script>
+    </body>
 </html>
