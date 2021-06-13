@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <meta charset="UTF-8" />
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-        <link rel="stylesheet" href="style.css" />
-        <title>eShop</title>
-    </head>
-    <body>
-        <div id="app">
-            <header>
-                <input type="text" class="products-search" v-model="searchLine" />
-                <button class="search-button" type="button" @click="filterProducts">Искать</button>
-                <button class="cart-button" type="button" @click="getCartList">Корзина</button>
-            </header>
-            <main>
-                <div class="products-list">
-                    <div class="products-item" v-for="product in filteredProducts">
-                        <h3>{{product.product_name}}</h3>
-                        <p>{{product.price}}</p>
-                    </div>
-                </div>
-                <div class="cart-body" v-show="isVisibleCart"></div>
-            </main>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+    <link rel="stylesheet" href="style.css" />
+    <title>eShop</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <search @searching="filterProducts"></search>
+        <cart @getcartlist="getCartList"></cart>
+      </header>
+      <main>
+        <error :is-error="isError"></error>
+
+        <div class="products-list">
+          <div class="products-item" v-for="product in filteredProducts">
+            <h3>{{product.product_name}}</h3>
+            <p>{{product.price}}</p>
+          </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-        <script src="script.js"></script>
-    </body>
+
+        <cart-body :show="isVisibleCart"></cart-body>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
