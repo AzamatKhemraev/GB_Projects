@@ -4,25 +4,21 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/6a5b01e445.js" crossorigin="anonymous"></script>
     <title>eShop</title>
   </head>
   <body>
     <div id="app">
       <header class="header">
         <search @searching="filterProducts"></search>
-        <cart @getcartlist="getCartList"></cart>
+        <cart @getcartlist="getCart"></cart>
       </header>
       <main>
         <error :is-error="isError"></error>
 
-        <div class="products-list">
-          <div class="products-item" v-for="product in filteredProducts">
-            <h3>{{product.product_name}}</h3>
-            <p>{{product.price}}</p>
-          </div>
-        </div>
+        <products-list :products="filteredProducts"></products-list>
 
-        <cart-body :show="isVisibleCart"></cart-body>
+        <cart-list :cart="cart"></cart-list>
       </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
