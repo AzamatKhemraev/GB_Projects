@@ -1,27 +1,27 @@
 <!DOCTYPE html>
+<meta charset="UTF-8" />
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/6a5b01e445.js" crossorigin="anonymous"></script>
     <title>eShop</title>
   </head>
   <body>
-    <main>
-      <header>
-        <nav class="header-menu">
-          <div class="logo">
-            <a href="#!" class="logo-link"><span>e</span>Shop</a>
-          </div>
-          <button class="cart-button" type="button"><i class="fas fa-shopping-cart"></i> Cart</button>
-        </nav>
+    <div id="app">
+      <header class="header">
+        <search @searching="filterProducts"></search>
+        <cart @getcartlist="getCart"></cart>
       </header>
       <main>
-        <div class="goods-list"></div>
+        <error :is-error="isError"></error>
+
+        <products-list :products="filteredProducts"></products-list>
+
+        <cart-list :cart="cart"></cart-list>
       </main>
-    </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
