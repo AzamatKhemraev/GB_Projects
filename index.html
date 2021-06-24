@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<meta charset="UTF-8" />
-<html>
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/6a5b01e445.js" crossorigin="anonymous"></script>
-    <title>eShop</title>
+    <title>Calculator</title>
   </head>
   <body>
-    <div id="app">
-      <header class="header">
-        <search @searching="filterProducts"></search>
-        <cart @getcartlist="getCart"></cart>
-      </header>
-      <main>
-        <error :is-error="isError"></error>
-
-        <products-list :products="filteredProducts"></products-list>
-
-        <cart-list :cart="cart"></cart-list>
-      </main>
+    <div class="wrapper">
+      <div class="input">
+        <input type="number" id="operandA" /><input type="number" value="1" id="operandB" />
+        <h2 class="result"></h2>
+      </div>
+      <div class="math">
+        <ul>
+          <li>
+            <button id="sum"><i class="far fa-plus-square"></i></button>
+          </li>
+          <li>
+            <button id="difference"><i class="far fa-minus-square"></i></button>
+          </li>
+          <li>
+            <button id="divide"><i class="fas fa-divide"></i></button>
+          </li>
+          <li>
+            <button id="multiplication"><i class="fas fa-times"></i></button>
+          </li>
+        </ul>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-    <script src="build.js"></script>
+
+    <script src="calc.js"></script>
   </body>
 </html>
