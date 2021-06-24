@@ -1,83 +1,48 @@
 * {
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.header {
+body {
   display: flex;
-  flex-direction: row;
-  gap: 70px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.cart-button {
-  /* margin-left: auto; */
-}
-
-.products-list {
-  margin-top: 15px;
-  /* border: 2px solid black; */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.cart-list {
-  margin-top: 50px;
-  padding: 15px 15px;
-  min-height: 213px;
-  border: 2px solid;
-  border-image: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
-  border-image-slice: 1;
+.wrapper {
+  min-height: 150px;
+  width: 500px;
+  background: rgba(206, 206, 206, 0.493);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.products-item {
-  border: 2px solid;
-  border-image: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
-  border-image-slice: 1;
-  width: 150px;
-  box-sizing: border-box;
-  padding: 5px 20px;
-  margin: 10px 10px;
-  transition: all 0.3s ease-in-out;
+ul {
+  list-style-type: none;
   display: flex;
-  flex-direction: column;
 }
 
-.cart-item {
-  border: 2px solid;
-  border-image: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
-  border-image-slice: 1;
-  width: 150px;
-  box-sizing: border-box;
-  padding: 5px 20px;
-  margin: 10px 10px;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
+li button {
+  background: transparent;
+  border: none;
+  font-size: 50px;
 }
 
-.products-item:hover {
-  box-shadow: 1px 8px 14px -8px rgba(0, 0, 0, 0.75);
-  transform: translate3d(2px, -1%, 30px);
+li:not(:last-child) {
+  margin-right: 50px;
 }
 
-.add__btn {
-  height: 100%;
-  font-size: 24px;
-  /* margin-bottom: 16px; */
-  border: transparent;
-  background: none;
-  cursor: pointer;
-  align-self: flex-end;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
-.quantity {
-  color: rgb(0, 220, 227);
-  font-weight: bold;
-  background: linear-gradient(225deg, rgb(202, 207, 154) 20%, rgb(0, 220, 227) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
